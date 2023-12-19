@@ -21,18 +21,18 @@ def main():
             with open(filename, "rb") as open_file:
                 content = open_file.read()  # Warning: will read the whole file.
                 hasher.update(content)
-            # print(hasher.hexdigest())
+            # print(hasher.hexdigest()) #DBUGR
 
     print(f"First run: {time.time() - start}")
 
     start = time.time()
     for filename in os.listdir(directory):
         if filename.endswith(".mov"):
-            # print(checksum_md5(filename))
+            # print(checksum_md5(filename)) #DBUGR
             checksum_md5(filename)
             continue
 
-    print(f"First run: {time.time() - start}")
+    print(f"Second run: {time.time() - start}")
 
     # To test if my C-code is giving the correct checksum on `main.c`:
     # `main.c` was: 05aaefae72afd3a95f686f6ed7702a4c. <- unless file updated.
